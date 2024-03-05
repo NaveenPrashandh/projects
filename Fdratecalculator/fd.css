@@ -1,0 +1,65 @@
+body{
+  background-color: rgba(255, 255, 0, 0.438);
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+
+.main{
+
+  background-color: rgba(17, 18, 31, 0.919);
+ border-radius: 10px;
+text-align: center;
+height: 380px;
+width: 25%;
+position: absolute;
+left: 40%;
+top:20%;
+  
+}
+
+.fd{
+  text-align: center;
+  position: relative;
+  top: 10%;
+}
+h2{
+  color: bisque;
+  
+  
+}
+
+.input{
+  position: relative;
+  top: 20%;
+  }
+
+  #months{
+    width: 55%;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  button{
+    position: relative;
+    top: 25%;
+    background-color: bisque;
+    color: rgba(6, 6, 64, 0.9);
+width: 50%;
+    border-radius: 5px;
+    padding: 4px;
+    font-weight: bold;
+    
+    
+  }
+
+#result{
+  position: relative;
+  top:30%;
+  color: #e4d1b9;
+  font-weight: bolder;
+ font-size: 1.5em;
+}
+
+
+
