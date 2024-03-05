@@ -5324,29 +5324,62 @@ document.addEventListener("DOMContentLoaded", function () {
     populateTable(data);
 
     // Function to filter data based on search input
-    function filterData(query) {
+    // function filterData(query) {
 
+    //     if (!data || data.length === 0) {
+    //         console.error("Data is undefined or empty.");
+    //         return;
+    //     }
+    
+    //     const filteredData = data.filter((entry) => {
+            
+    //         if (entry.hasOwnProperty("Doctor Name")) {
+    //             return entry["Doctor Name"].toLowerCase().includes(query.toLowerCase());
+
+    //             else if(entry.hasOwnProperty("City")){
+    //               return entry["City"].toLowerCase().includes(query.toLowerCase());
+    //             }
+    //             else {
+    //                 return false;
+    //             }
+    //         } 
+    //     });
+    
+    //     if (filteredData.length === 0) {
+           
+    //         document.getElementById("table").innerHTML = "<tr><td colspan='3'>No data found</td></tr>";
+    //     } else {
+    //         populateTable(filteredData);
+    //     }
+    // }
+
+    function filterData(query) {
         if (!data || data.length === 0) {
             console.error("Data is undefined or empty.");
             return;
         }
     
         const filteredData = data.filter((entry) => {
-            
-            if (entry.hasOwnProperty("Doctor Name")) {
-                return entry["Doctor Name"].toLowerCase().includes(query.toLowerCase());
-            } else {
-                return false;
+            // Check if any field contains the query string
+            for (const key in entry) {
+                if (entry.hasOwnProperty(key) && typeof entry[key] === "string") {
+                    if (entry[key].toLowerCase().includes(query.toLowerCase())) {
+                        return true;
+                    }
+                }
             }
+            return false;
         });
     
         if (filteredData.length === 0) {
-           
-            document.getElementById("table").innerHTML = "<tr><td colspan='3'>No data found</td></tr>";
+            // Display a message indicating no data found
+            document.getElementById("dataTable").innerHTML = "<tr><td colspan='10'>No data found</td></tr>";
         } else {
             populateTable(filteredData);
         }
     }
+    
+    
 
     // Event listener for search input
     searchInput.addEventListener("input", function () {
